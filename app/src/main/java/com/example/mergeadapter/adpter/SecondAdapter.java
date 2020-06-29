@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,12 +37,25 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SecondAdapter.SecondHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SecondAdapter.SecondHolder holder, final int position) {
         Second second = secondList.get(position);
 
         holder.tvBody.setText(second.getBody());
 
         Picasso.get().load(second.getImgBody()).into(holder.imgBody);
+
+        holder.tvBody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Đây là tvBody ở vị trí: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.imgBody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Đây là imgBody ở vị trí: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -58,6 +72,13 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondHold
 
             tvBody = itemView.findViewById(R.id.tvBody);
             imgBody = itemView.findViewById(R.id.imgBody);
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    System.out.println("Đây là SecondAdapter!");
+//                }
+//            });
         }
     }
 }

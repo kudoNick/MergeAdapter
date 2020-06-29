@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.MergeAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.mergeadapter.adpter.FirstAdapter;
 import com.example.mergeadapter.adpter.SecondAdapter;
@@ -53,5 +54,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         rcvData.setLayoutManager(layoutManager1);
         rcvData.setAdapter(mergeAdapter);
+
+
     }
 }

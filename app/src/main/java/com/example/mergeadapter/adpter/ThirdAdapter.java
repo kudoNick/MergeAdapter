@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +41,13 @@ public class ThirdAdapter extends RecyclerView.Adapter<ThirdAdapter.ThirdHolder>
         Third third = thirdList.get(position);
 
         Picasso.get().load(third.getImgThird()).into(holder.imgThird);
+
+        holder.imgThird.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Đây là ThirdAdapter!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -53,6 +61,7 @@ public class ThirdAdapter extends RecyclerView.Adapter<ThirdAdapter.ThirdHolder>
             super(itemView);
 
             imgThird = itemView.findViewById(R.id.imgThird);
+
         }
     }
 }
